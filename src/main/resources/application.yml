@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/database_parking
     username: postgres
-    password: fhbufnj8
+    password: 10092001artem
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
