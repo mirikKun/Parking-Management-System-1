@@ -18,10 +18,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="/accounts">ACCOUNTS<span class="sr-only"></span></a>
+                <a class="nav-link" href="/accounts">ACCOUNTS</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/spots">SPOTS</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/tickets">TICKETS<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/vehicles">VEHICLES</a>
             </li>
         </ul>
     </div>
@@ -40,8 +46,8 @@
                             <span class="font-italic text-danger" th:if="${#fields.hasErrors('paymentId')}" th:errors="*{paymentId}"></span>
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="creationDate" class="col-form-label">CREATION DATE </label>
-                            <input type="date" th:value="${creationDate}" name="creationDate" class="form-control" id="creationDate">
+                            <label for="creationDate" class="col-form-label">CREATION DATE</label>
+                            <input type="date" th:field="*{creationDate}" name="creationDate" class="form-control" id="creationDate">
                         </div>
                         <div class="form-group col-md-8">
                             <input type="submit" class="btn btn-primary" value="UPDATE TICKET">
