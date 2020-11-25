@@ -9,8 +9,11 @@ public class Floor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "floor_number")
     private int floorNumber;
+    @Column(name = "spot_number")
     private int spotNumber;
+    @Column(name = "parking_id")
     private int parkingID;
 
     public Floor(int floorNumber, int spotNumber, int parkingID) {

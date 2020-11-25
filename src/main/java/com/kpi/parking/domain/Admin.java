@@ -14,6 +14,7 @@ public class Admin {
     private String address;
     private String email;
     private String phone;
+    @Column(name = "account_id")
     private int accountId;
 
     public Admin(String name, String address, String email, String phone, int account_id) {
@@ -77,12 +78,12 @@ public class Admin {
         this.phone = phone;
     }
 
-    public int getAccount_id() {
+    public int getAccountId() {
         return accountId;
     }
 
-    public void setAccount_id(int account_id) {
-        this.accountId = account_id;
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     @Override

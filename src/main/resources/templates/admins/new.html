@@ -18,7 +18,28 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
+                <a class="nav-link" href="/accounts">ACCOUNTS</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/spots">SPOTS</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/tickets">TICKETS</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/vehicles">VEHICLES</a>
+            </li>
+            <li class="nav-item active">
                 <a class="nav-link" href="/admins">ADMINS<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/floors">FLOORS</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/parkings">PARKINGS</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/payments">PAYMENTS</a>
             </li>
         </ul>
     </div>
@@ -52,9 +73,9 @@
                             <span class="font-italic text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="account_id" class="col-form-label">ACCOUNT ID</label>
-                            <input type="text" th:field="*{account_id}" class="form-control" id="account_id">
-                            <span class="font-italic text-danger" th:if="${#fields.hasErrors('account_id')}" th:errors="*{account_id}"></span>
+                            <label for="accountId" class="col-form-label">ACCOUNT ID</label>
+                            <input type="text" th:field="*{accountId}" class="form-control" id="accountId">
+                            <span class="font-italic text-danger" th:if="${#fields.hasErrors('accountId')}" th:errors="*{accountId}"></span>
                         </div>
                         <div class="col-md-6">
                             <input type="submit" class="btn btn-primary" value="ADD ADMIN">

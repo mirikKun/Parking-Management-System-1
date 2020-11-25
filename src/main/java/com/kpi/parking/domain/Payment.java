@@ -1,5 +1,7 @@
 package com.kpi.parking.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -11,6 +13,8 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @Column(name = "creation_date")
     private LocalDate creationDate;
     private int amount;
     private String status;
