@@ -44,33 +44,6 @@
         </ul>
     </div>
 </nav>
-<div class="container my-5">
-    <h3> ADD TICKET</h3>
-    <div class="card">
-        <div class="card-body">
-            <div class="col-md-10">
-                <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
-                <form action="#" th:action="@{/tickets/save}" th:object="${ticket}" method="post">
-                    <div class="row">
-                        <div class="form-group col-md-8">
-                            <label for="paymentId" class="col-form-label">PAYMET ID</label>
-                            <input type="text" th:field="*{paymentId}" class="form-control" id="paymentId">
-                            <span class="font-italic text-danger" th:if="${#fields.hasErrors('paymentId')}" th:errors="*{paymentId}"></span>
-                        </div>
-                        <div class="form-group col-md-8">
-                            <label for="creationDate" class="col-form-label">CREATION DATE </label>
-                            <input type="datetime-local" th:value="${creationDate}" name="creationDate" class="form-control" id="creationDate">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="submit" class="btn btn-primary" value="ADD TICKET">
-                        </div>
-                        <div class="form-group col-md-8"></div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 
 </html>

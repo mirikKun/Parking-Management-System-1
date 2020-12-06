@@ -19,7 +19,7 @@ CREATE TABLE payments
 CREATE TABLE tickets
 (
   id SERIAL PRIMARY KEY,
-  creation_date DATE,
+  creation_date DATETIME,
   payment_id INT,
   CONSTRAINT FK_tickets_to_payments FOREIGN KEY (payment_id) REFERENCES payments (id) ON UPDATE CASCADE ON DELETE CASCADE
 );

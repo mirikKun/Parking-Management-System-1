@@ -3,6 +3,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -15,18 +16,18 @@ public class Ticket {
     @Column(name="payment_id")
     private int paymentId;
     @Column(name="creation_date")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDate creationDate;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime creationDate;
 
     public Ticket() {
     }
-    public Ticket(int id, LocalDate creationDate, int paymentId ){
+    public Ticket(int id, LocalDateTime creationDate, int paymentId ){
         this.id = id;
         this.paymentId = paymentId;
         this.creationDate = creationDate;
     }
 
-    public Ticket(LocalDate creationDate, int paymentId) {
+    public Ticket(LocalDateTime creationDate, int paymentId) {
 
         this.paymentId = paymentId;
         this.creationDate = creationDate;
@@ -48,11 +49,11 @@ public class Ticket {
         this.paymentId = paymentId;
     }
 
-    public LocalDate getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(LocalDate creationDate) {
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
 

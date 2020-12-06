@@ -65,4 +65,15 @@ public class TicketController {
         ticketService.update(ticket);
         return "redirect:/tickets";
     }
+
+    @GetMapping("receipt/{id}")
+    public String pay(@PathVariable int id, RedirectAttributes redirectAttributes, Model model) {
+        Optional<Ticket> ticket = ticketService.getById(id);
+        if (ticket.isPresent()) {
+            model.addAttribute("ticket", ticket.get());
+        } else {
+            redirectAttributes.addFlashAttribute("error", "Payment is not present");
+        }
+        return "tickets/edit";
+    }
 }
