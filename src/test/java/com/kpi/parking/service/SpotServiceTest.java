@@ -27,7 +27,7 @@ class SpotServiceTest {
 
     @Test
     void givenIdOfTheFirstSpot_whenGetById_thenReturnedSpotWithGivenId() {
-        Optional<Spot> expectedSpot = Optional.of(new Spot(1, true,"Compact", 1));
+        Optional<Spot> expectedSpot = Optional.of(new Spot(1, true,"Compact", 1,100));
         when(SpotRepository.findById(1)).thenReturn(expectedSpot);
 
         Optional<Spot> actualSpot = SpotService.getById(1);
@@ -38,7 +38,7 @@ class SpotServiceTest {
 
     @Test
     void getAll() {
-        List<Spot> expectedSpots = singletonList(new Spot(1, true,"Compact", 1));
+        List<Spot> expectedSpots = singletonList(new Spot(1, true,"Compact", 1,100));
         when(SpotRepository.findAll()).thenReturn(expectedSpots);
 
         List<Spot> actualSpots = SpotService.getAll();
@@ -49,7 +49,7 @@ class SpotServiceTest {
 
     @Test
     void save() {
-        Spot Spot = new Spot(1, true,"Compact", 1);
+        Spot Spot = new Spot(1, true,"Compact", 1,100);
 
         SpotService.save(Spot);
 
@@ -58,7 +58,7 @@ class SpotServiceTest {
 
     @Test
     void update() {
-        Spot Spot = new Spot(1, true,"Compact", 1);
+        Spot Spot = new Spot(1, true,"Compact", 1,100);
         when(SpotRepository.findById(1)).thenReturn(Optional.of(Spot));
 
         SpotService.update(Spot);
