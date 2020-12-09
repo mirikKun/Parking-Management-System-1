@@ -57,6 +57,7 @@
                                 <th>IS FREE</th>
                                 <th>TYPE</th>
                                 <th>FLOOR ID</th>
+                                <th>FEE</th>
                                 <th>EDIT</th>
                                 <th>DELETE</th>
                             </tr>
@@ -67,6 +68,7 @@
                                 <td th:text="${spot.getIsFree()}"></td>
                                 <td th:text="${spot.getType()}"></td>
                                 <td th:text="${spot.getFloorId()}"></td>
+                                <td th:text="${spot.getFee()}"></td>
                                 <td><a th:href="@{/spots/edit/{id}(id=${spot.getId()})}" class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
                                 <td><a th:href="@{/spots/delete/{id}(id=${spot.getId()})}" class="btn btn-primary"><i class="fas fa-trash-alt"></i></a></td>
                             </tr>

@@ -68,6 +68,11 @@
                             <span class="font-italic text-danger" th:if="${#fields.hasErrors('floorId')}" th:errors="*{floorId}"></span>
                         </div>
                         <div class="form-group col-md-8">
+                            <label for="fee" class="col-form-label">FEE</label>
+                            <input type="text" th:field="*{fee}" class="form-control" id="fee">
+                            <span class="font-italic text-danger" th:if="${#fields.hasErrors('fee')}" th:errors="*{fee}"></span>
+                        </div>
+                        <div class="form-group col-md-8">
                             <input type="submit" class="btn btn-primary" value="UPDATE SPOT">
                         </div>
                     </div>

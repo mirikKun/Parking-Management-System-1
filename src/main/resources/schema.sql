@@ -16,13 +16,7 @@ CREATE TABLE payments
   type VARCHAR(255)
 );
 
-CREATE TABLE tickets
-(
-  id SERIAL PRIMARY KEY,
-  creation_date DATETIME,
-  payment_id INT,
-  CONSTRAINT FK_tickets_to_payments FOREIGN KEY (payment_id) REFERENCES payments (id) ON UPDATE CASCADE ON DELETE CASCADE
-);
+
 
 CREATE TABLE parkings
 (
@@ -45,7 +39,9 @@ CREATE TABLE spots
     is_free BOOLEAN,
     type VARCHAR(255),
     floor_id INT,
+    fee INT,
     CONSTRAINT FK_spots_to_floors FOREIGN KEY (floor_id) REFERENCES floors (id) ON UPDATE CASCADE ON DELETE CASCADE
+
 );
 
 CREATE TABLE accounts
@@ -65,7 +61,15 @@ CREATE TABLE admins
     account_id INTEGER,
     CONSTRAINT FK_admins_to_accounts FOREIGN KEY (account_id) REFERENCES accounts (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
-
+CREATE TABLE tickets
+(
+    id SERIAL PRIMARY KEY,
+    creation_date TIMESTAMP,
+    payment_id INT,
+    spot_id INT,
+    CONSTRAINT FK_tickets_to_payments FOREIGN KEY (payment_id) REFERENCES payments (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT FK_tickets_to_spots FOREIGN KEY (spot_id) REFERENCES spots (id) ON UPDATE CASCADE ON DELETE CASCADE
+);
 CREATE TABLE vehicles
 (
     id   SERIAL PRIMARY KEY,

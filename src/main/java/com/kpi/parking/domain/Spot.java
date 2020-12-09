@@ -14,21 +14,36 @@ public class Spot {
     private String type;
     @Column(name = "floor_id")
     private int floorId;
+    private int fee;
+
+
+
+    public int getFee() {
+        return fee;
+    }
+
+    public void setFee(int fee) {
+        this.fee = fee;
+    }
+
+
 
     public Spot() {
     }
 
-    public Spot(boolean isFree, String type, int floorId) {
+    public Spot(boolean isFree, String type, int floorId, int fee) {
         this.isFree = isFree;
         this.type = type;
         this.floorId = floorId;
+        this.fee=fee;
     }
 
-    public Spot(int id, boolean isFree, String type, int floorId) {
+    public Spot(int id, boolean isFree, String type, int floorId, int fee) {
         this.id = id;
         this.isFree = isFree;
         this.type = type;
         this.floorId = floorId;
+        this.fee=fee;
     }
 
     public int getId() {
@@ -71,11 +86,13 @@ public class Spot {
         return id == spot.id &&
                 isFree == spot.isFree &&
                 floorId == spot.floorId &&
+                fee== spot.fee &&
                 type.equals(spot.type);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, isFree, type, floorId);
+        return Objects.hash(id, isFree, type, floorId,fee);
     }
 }

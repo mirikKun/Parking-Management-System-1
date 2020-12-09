@@ -3,10 +3,6 @@ VALUES ('2020-11-07', 1300, 'Paid', 'Cash'),
        ('2020-10-06', 753, 'Not paid', 'Card'),
        ('2020-10-29', 1550, 'Paid', 'Cash');
 
-INSERT INTO tickets (creation_date, payment_id)
-VALUES ('2019-07-13', 1),
-       ('2020-10-06', 2),
-       ('2020-01-20', 3);
 
 INSERT INTO parkings (address)
 VALUES ('Peremohy Ave, 37, Kyiv, 03056'),
@@ -17,12 +13,17 @@ VALUES (1, 40, 1),
        (2, 12, 1),
        (1, 35, 2);
 
-INSERT INTO spots (is_free, type, floor_id)
-VALUES (true, 'Compact', 1),
-       (false, 'Handicapped', 1),
-       (true, 'Large', 1),
-       (true, 'Electric', 2),
-       (false, 'Motorbike', 3);
+INSERT INTO spots (is_free, type, floor_id,fee)
+VALUES (true, 'Compact', 1,100),
+       (false, 'Handicapped', 1,300),
+       (true, 'Large', 1,500),
+       (true, 'Electric', 2,500),
+       (false, 'Motorbike', 3,100);
+
+INSERT INTO tickets (creation_date, payment_id,spot_id)
+VALUES ('2019-07-13 10:50:00', 1,1),
+       ('2020-10-06 23:59:30', 2,2),
+       ('2020-01-20 22:22:12', 3,3);
 
 INSERT INTO accounts (username, password)
 VALUES ('username', 'password'),

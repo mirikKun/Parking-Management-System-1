@@ -1,11 +1,14 @@
 package com.kpi.parking.service;
 
 import com.kpi.parking.domain.Spot;
-import com.kpi.parking.exception.EntityNotFoundException;
-import com.kpi.parking.exception.UsernameNotUniqueException;
 import com.kpi.parking.repository.SpotRepository;
+import com.kpi.parking.domain.Ticket;
+
+import com.kpi.parking.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
