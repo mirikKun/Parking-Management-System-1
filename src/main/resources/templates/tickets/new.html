@@ -53,7 +53,7 @@
                 <form action="#" th:action="@{/tickets/save}" th:object="${ticket}" method="post">
                     <div class="row">
                         <div class="form-group col-md-8">
-                            <label for="paymentId" class="col-form-label">PAYMET ID</label>
+                            <label for="paymentId" class="col-form-label">PAYMENT ID</label>
                             <input type="text" th:field="*{paymentId}" class="form-control" id="paymentId">
                             <span class="font-italic text-danger" th:if="${#fields.hasErrors('paymentId')}" th:errors="*{paymentId}"></span>
                         </div>

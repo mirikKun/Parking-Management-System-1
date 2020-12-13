@@ -20,8 +20,6 @@ public class Ticket {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime creationDate;
 
-
-
     @Column(name = "spot_id")
     private int spotId;
 

@@ -16,8 +16,6 @@ public class Spot {
     private int floorId;
     private int fee;
 
-
-
     public int getFee() {
         return fee;
     }
