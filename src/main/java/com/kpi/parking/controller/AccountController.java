@@ -2,21 +2,23 @@ package com.kpi.parking.controller;
 
 import com.kpi.parking.domain.Account;
 import com.kpi.parking.service.AccountService;
+import com.kpi.parking.service.AccountServiceProxy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
 @RequestMapping("/accounts")
 public class AccountController {
 
-    private final AccountService accountService;
+    private final AccountServiceProxy accountService;
 
-    public AccountController(AccountService accountService) {
+    public AccountController(AccountServiceProxy accountService) {
         this.accountService = accountService;
     }
 
@@ -43,7 +45,7 @@ public class AccountController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("account") Account account, BindingResult bindingResult) {
+    public String save(@ModelAttribute("account") @Valid Account account, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/accounts/new";
         }
@@ -58,7 +60,7 @@ public class AccountController {
     }
 
     @PostMapping("update/{id}")
-    public String update(@ModelAttribute("account") Account account, BindingResult bindingResult) {
+    public String update(@ModelAttribute("account") @Valid Account account, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/accounts/edit";
         }
