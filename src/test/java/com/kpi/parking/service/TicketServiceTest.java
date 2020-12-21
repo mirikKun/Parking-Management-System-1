@@ -48,24 +48,5 @@ class TicketServiceTest {
         assertEquals(expectedTickets, actualTickets);
     }
 
-    @Test
-    void save() {
-        Ticket ticket = new Ticket(1, LocalDateTime.parse("2019-07-13T10:50:00"), 1,1);
-        when(ticketRepository.findByPaymentId(1)).thenReturn(Optional.empty());
 
-        ticketService.save(ticket);
-
-        verify(ticketRepository, times(1)).save(ticket);
-    }
-
-    @Test
-    void update() {
-        Ticket ticket = new Ticket(1, LocalDateTime.parse("2019-07-13T10:50:00"), 1,1);
-        when(ticketRepository.findById(1)).thenReturn(Optional.of(ticket));
-        when(ticketRepository.findByPaymentId(1)).thenReturn(Optional.empty());
-
-        ticketService.update(ticket);
-
-        verify(ticketRepository, times(1)).save(ticket);
-    }
 }

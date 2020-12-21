@@ -20,10 +20,10 @@ VALUES (true, 'Compact', 1,100),
        (true, 'Electric', 2,500),
        (false, 'Motorbike', 3,100);
 
-INSERT INTO tickets (creation_date, payment_id,spot_id)
-VALUES ('2019-07-13 10:50:00', 1,1),
-       ('2020-10-06 23:59:30', 2,2),
-       ('2020-01-20 22:22:12', 3,3);
+INSERT INTO tickets (creation_date, spot_id)
+VALUES ('2019-07-13 10:50:00', 1),
+       ('2020-10-06 23:59:30', 2),
+       ('2020-01-20 22:22:12', 3);
 
 INSERT INTO accounts (username, password)
 VALUES ('username', 'password'),
