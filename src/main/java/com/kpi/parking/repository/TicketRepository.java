@@ -11,6 +11,4 @@ import java.util.Optional;
 public interface TicketRepository extends CrudRepository<Ticket, Integer> {
 
     List<Ticket> findAll();
-
-    Optional<Ticket> findByPaymentId(int paymentId);
 }

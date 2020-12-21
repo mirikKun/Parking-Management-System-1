@@ -13,8 +13,7 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name="payment_id")
-    private int paymentId;
+
 
     @Column(name="creation_date")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -27,14 +26,11 @@ public class Ticket {
     }
     public Ticket(int id, LocalDateTime creationDate, int paymentId ,int spotId){
         this.id = id;
-        this.paymentId = paymentId;
         this.creationDate = creationDate;
         this.spotId=spotId;
     }
 
     public Ticket(LocalDateTime creationDate, int paymentId,int spotId) {
-
-        this.paymentId = paymentId;
         this.creationDate = creationDate;
         this.spotId=spotId;
     }
@@ -54,14 +50,6 @@ public class Ticket {
         this.id = id;
     }
 
-    public int getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
-    }
-
     public LocalDateTime getCreationDate() {
         return creationDate;
     }
@@ -76,13 +64,12 @@ public class Ticket {
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
         return id == ticket.id &&
-                paymentId == ticket.paymentId &&
                 creationDate.equals(ticket.creationDate) &&
                 spotId==ticket.spotId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, paymentId, creationDate,spotId);
+        return Objects.hash(id, creationDate,spotId);
     }
 }

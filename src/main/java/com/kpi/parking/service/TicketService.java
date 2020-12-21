@@ -28,12 +28,10 @@ public class TicketService {
     }
 
     public void save(Ticket ticket) {
-        verifyTicketUnique(ticket);
         ticketRepository.save(ticket);
     }
 
     public void update(Ticket ticket) {
-        verifyTicketUnique(ticket);
         verifyTicketPresent(ticket.getId());
         ticketRepository.save(ticket);
     }
@@ -45,13 +43,5 @@ public class TicketService {
     private void verifyTicketPresent(int id) {
         ticketRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(
                 String.format("Ticket with id %d is not present", id)));
-    }
-
-    private void verifyTicketUnique(Ticket ticket) {
-        ticketRepository.findByPaymentId(ticket.getPaymentId()).ifPresent(ticketWithSameUsername -> {
-            if (ticket.getId() != ticketWithSameUsername.getId()) {
-                throw new UsernameNotUniqueException(String.format("Ticket with Payment Id %s already exist", ticket.getPaymentId()));
-            }
-        });
     }
 }

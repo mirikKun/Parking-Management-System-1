@@ -34,9 +34,6 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/parkings">PARKINGS</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/payments">PAYMENTS</a>
-            </li>
         </ul>
     </div>
 </nav>
@@ -54,8 +51,8 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>PAYMENT ID</th>
                                 <th>CREATION DATE</th>
+                                <th>SPOT ID</th>
                                 <th>EDIT</th>
                                 <th>DELETE</th>
                                 <th>PAY</th>
@@ -64,8 +61,8 @@
                             <tbody>
                             <tr th:each="ticket : ${tickets}">
                                 <td th:text="${ticket.getId()}"></td>
-                                <td th:text="${ticket.getPaymentId()}"></td>
                                 <td th:text="${ticket.getCreationDate()}"></td>
+                                <td th:text="${ticket.getSpotId()}"></td>
                                 <td><a th:href="@{/tickets/edit/{id}(id=${ticket.getId()})}" class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
                                 <td><a th:href="@{/tickets/delete/{id}(id=${ticket.getId()})}" class="btn btn-primary"><i class="fas fa-trash-alt"></i></a></td>
                                 <td><a th:href="@{/tickets/receipt/{id}(id=${ticket.getId()})}" class="btn btn-primary"><i class="far fa-money-bill-alt"></i></a></td>

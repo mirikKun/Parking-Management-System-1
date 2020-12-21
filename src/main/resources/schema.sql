@@ -65,9 +65,7 @@ CREATE TABLE tickets
 (
     id SERIAL PRIMARY KEY,
     creation_date TIMESTAMP,
-    payment_id INT,
     spot_id INT,
-    CONSTRAINT FK_tickets_to_payments FOREIGN KEY (payment_id) REFERENCES payments (id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT FK_tickets_to_spots FOREIGN KEY (spot_id) REFERENCES spots (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 CREATE TABLE vehicles
