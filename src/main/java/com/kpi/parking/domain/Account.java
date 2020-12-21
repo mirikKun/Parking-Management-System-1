@@ -1,5 +1,7 @@
 package com.kpi.parking.domain;
 
+import com.kpi.parking.validator.Password;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -11,6 +13,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
+    @Password
     private String password;
 
     public Account() {

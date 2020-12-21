@@ -17,10 +17,8 @@ public class ReceiptService {
         this.spotService = spotService;
     }
 
-
-    public Receipt check(Ticket ticket,LocalDateTime endTime) {
+    public Receipt check(Ticket ticket, LocalDateTime endTime) {
         LocalDateTime creationDate = ticket.getCreationDate();
-
         Duration parkingTime = Duration.between(creationDate, endTime);
         Spot spot = spotService.getById(ticket.getSpotId()).get();
         int fee = spot.getFee();

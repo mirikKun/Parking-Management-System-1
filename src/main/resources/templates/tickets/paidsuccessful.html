@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Update audience</title>
+    <title>Add audience</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -45,24 +45,18 @@
     </div>
 </nav>
 <div class="container my-5">
-    <h3> UPDATE TICKET</h3>
+    <h3>RECEIPT</h3>
     <div class="card">
         <div class="card-body">
             <div class="col-md-8">
                 <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
-                <form action="#" th:action="@{/tickets/update/{id}(id=${ticket.getId()})}" th:object="${ticket}" method="post">
+                <form action="#" th:action="@{/tickets}" method="post">
                     <div class="row">
                         <div class="form-group col-md-8">
-                            <label for="paymentId" class="col-form-label">PAYMENT ID</label>
-                            <input type="text" th:field="*{paymentId}" class="form-control" id="paymentId">
-                            <span class="font-italic text-danger" th:if="${#fields.hasErrors('paymentId')}" th:errors="*{paymentId}"></span>
+                            <label class="col-form-label">PAID SUCCESSFUL</label>
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="creationDate" class="col-form-label">CREATION DATE</label>
-                            <input type="datetime-local" th:field="*{creationDate}" name="creationDate" class="form-control" id="creationDate">
-                        </div>
-                        <div class="form-group col-md-8">
-                            <input type="submit" class="btn btn-primary" value="UPDATE TICKET">
+                            <input type="submit" class="btn btn-primary" value="RETURN">
                         </div>
                     </div>
                 </form>
@@ -71,5 +65,4 @@
     </div>
 </div>
 </body>
-
 </html>

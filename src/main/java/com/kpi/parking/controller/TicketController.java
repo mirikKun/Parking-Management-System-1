@@ -1,6 +1,8 @@
 package com.kpi.parking.controller;
 
+import com.kpi.parking.domain.Receipt;
 import com.kpi.parking.domain.Ticket;
+import com.kpi.parking.service.ReceiptService;
 import com.kpi.parking.service.TicketService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Controller
@@ -15,9 +18,11 @@ import java.util.Optional;
 public class TicketController {
 
     private final TicketService ticketService;
+    private final ReceiptService receiptService;
 
-    public TicketController(TicketService ticketService) {
+    public TicketController(TicketService ticketService, ReceiptService receiptService) {
         this.ticketService = ticketService;
+        this.receiptService = receiptService;
     }
 
     @GetMapping
@@ -70,10 +75,16 @@ public class TicketController {
     public String pay(@PathVariable int id, RedirectAttributes redirectAttributes, Model model) {
         Optional<Ticket> ticket = ticketService.getById(id);
         if (ticket.isPresent()) {
-            model.addAttribute("ticket", ticket.get());
+            Receipt receipt = receiptService.check(ticket.get(), LocalDateTime.now());
+            model.addAttribute("receipt", receipt);
         } else {
-            redirectAttributes.addFlashAttribute("error", "Payment is not present");
+            redirectAttributes.addFlashAttribute("error", "Ticket is not");
         }
-        return "tickets/edit";
+        return "tickets/receipt";
+    }
+
+    @GetMapping("/paidsuccessful")
+    public String success() {
+        return "tickets/paidsuccessful";
     }
 }

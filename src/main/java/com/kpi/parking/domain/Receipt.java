@@ -1,23 +1,16 @@
 package com.kpi.parking.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Receipt {
-    @Override
-    public String toString() {
-        return "Receipt{" +
-                "creationDate=" + creationDate +
-                ", endTime=" + endTime +
-                ", hours=" + hours +
-                ", fee=" + fee +
-                ", totalCost=" + totalCost +
-                '}';
-    }
 
+public class Receipt {
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime creationDate;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime endTime;
     private int hours;
     private int fee;
@@ -31,21 +24,16 @@ public class Receipt {
         this.totalCost = totalCost;
     }
 
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
     public LocalDateTime getCreationDate() {
         return creationDate;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Receipt receipt = (Receipt) o;
-        return hours == receipt.hours && fee == receipt.fee && totalCost == receipt.totalCost && creationDate.equals(receipt.creationDate) && endTime.equals(receipt.endTime);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(creationDate, endTime, hours, fee, totalCost);
     }
 
     public void setCreationDate(LocalDateTime creationDate) {
@@ -84,4 +72,27 @@ public class Receipt {
         this.totalCost = totalCost;
     }
 
+    @Override
+    public String toString() {
+        return "Receipt{" +
+                "creationDate=" + creationDate +
+                ", endTime=" + endTime +
+                ", hours=" + hours +
+                ", fee=" + fee +
+                ", totalCost=" + totalCost +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Receipt receipt = (Receipt) o;
+        return hours == receipt.hours && fee == receipt.fee && totalCost == receipt.totalCost && creationDate.equals(receipt.creationDate) && endTime.equals(receipt.endTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(creationDate, endTime, hours, fee, totalCost);
+    }
 }

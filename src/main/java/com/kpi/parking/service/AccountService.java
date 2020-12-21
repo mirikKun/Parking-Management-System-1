@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AccountService {
+public class AccountService implements AccountProcessor {
 
     private final AccountRepository accountRepository;
 
@@ -18,26 +18,30 @@ public class AccountService {
         this.accountRepository = accountRepository;
     }
 
-
+    @Override
     public Optional<Account> getById(int id) {
         return accountRepository.findById(id);
     }
 
+    @Override
     public List<Account> getAll() {
         return accountRepository.findAll();
     }
 
+    @Override
     public void save(Account account) {
         verifyAccountUnique(account);
         accountRepository.save(account);
     }
 
+    @Override
     public void update(Account account) {
         verifyAccountUnique(account);
         verifyAccountPresent(account.getId());
         accountRepository.save(account);
     }
 
+    @Override
     public void delete(int id) {
         accountRepository.deleteById(id);
     }

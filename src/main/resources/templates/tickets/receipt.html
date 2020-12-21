@@ -44,6 +44,45 @@
         </ul>
     </div>
 </nav>
+<div class="container my-5">
+    <h3>RECEIPT</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-8">
+                <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
+                <form action="#" th:action="@{/tickets/paidsuccessful}" th:object="${receipt}" method="get">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="creationDate" class="col-form-label">CHECK IN TIME</label>
+                            <input type="datetime-local" th:field="*{creationDate}" name="creationDate" class="form-control" id="creationDate" readonly>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="endTime" class="col-form-label">CHECK OUT TIME</label>
+                            <input type="datetime-local" th:field="*{endTime}" name="creationDate" class="form-control" id="endTime" readonly>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="hours" class="col-form-label">SPENT HOURS</label>
+                            <input type="number" th:field="*{hours}" class="form-control" id="hours" readonly>
+                            <span class="font-italic text-danger" th:if="${#fields.hasErrors('hours')}" th:errors="*{hours}"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="fee" class="col-form-label">FEE PER HOUR</label>
+                            <input type="number" th:field="*{fee}" class="form-control" id="fee" readonly>
+                            <span class="font-italic text-danger" th:if="${#fields.hasErrors('fee')}" th:errors="*{fee}"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="fee" class="col-form-label">TOTAL COST</label>
+                            <input type="number" th:field="*{totalCost}" class="form-control" id="totalCost" readonly>
+                            <span class="font-italic text-danger" th:if="${#fields.hasErrors('totalCost')}" th:errors="*{totalCost}"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="submit" class="btn btn-primary" value="PAY">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
-
 </html>
